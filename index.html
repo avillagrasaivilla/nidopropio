@@ -552,7 +552,7 @@
       .compare-grid { flex-direction: column; align-items: center; }
     }
       /* Comparativa */
-    .comparativa-section{padding:5rem 2rem;background:var(--cream);}
+    .comparativa-section{padding:5rem 2rem;background:white;}
     .comparativa-section h2{text-align:center;font-size:2rem;color:var(--navy);margin-bottom:.75rem;}
     .comparativa-section .sub{text-align:center;color:var(--muted);margin-bottom:2.5rem;max-width:600px;margin-left:auto;margin-right:auto;}
     .comp-table-wrap{overflow-x:auto;max-width:860px;margin:0 auto;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.08);}
@@ -589,6 +589,13 @@
     #cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,43,58,.97);color:white;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:9999;font-size:.85rem;flex-wrap:wrap;}
     #cookie-banner a{color:var(--amber);}
     #cookie-accept{background:var(--green);color:white;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:700;}
+    /* Modal */
+    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10000;align-items:center;justify-content:center;}
+    .modal-overlay.open{display:flex;}
+    .modal-box{background:white;border-radius:12px;padding:2rem;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;position:relative;}
+    .modal-box h3{color:var(--navy);margin-bottom:1rem;}
+    .modal-box p{color:var(--muted);line-height:1.7;font-size:.9rem;}
+    .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--navy);}
 </style>
 </head>
 <body>
@@ -1172,34 +1179,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <h2>Preguntas frecuentes</h2>
-  <details>
-    <summary>¿Son casas de calidad o "barracones"?</summary>
-    <p>Las casas prefabricadas modernas no tienen nada que ver con los barracones de hace 30 años. Son construcciones certificadas con aislamiento térmico superior al de muchos pisos tradicionales, acabados de calidad y vida útil de más de 50 años. Muchas tienen certificación energética A+.</p>
-  </details>
-  <details>
-    <summary>¿El terreno es mío o lo alquilo?</summary>
-    <p>El terreno es tuyo en propiedad. Compras tanto la casa como el suelo. Sin contratos de alquiler de suelo, sin incertidumbre sobre renovaciones.</p>
-  </details>
-  <details>
-    <summary>¿Se puede hipotecar una casa prefabricada?</summary>
-    <p>Sí, cada vez más bancos dan hipotecas para casas prefabricadas sobre terreno propio. Trabajaremos con entidades que ya lo hacen para facilitar la financiación.</p>
-  </details>
-  <details>
-    <summary>¿Dónde estarán ubicadas exactamente?</summary>
-    <p>Estamos estudiando terrenos urbanizables en zonas periféricas bien conectadas: a menos de 40 min de Barcelona o de la capital de provincia, con acceso a transporte público o carretera principal.</p>
-  </details>
-  <details>
-    <summary>¿Es esto legal en Cataluña?</summary>
-    <p>Estamos trabajando con arquitectos y asesores urbanísticos para asegurarnos de que cada proyecto cumpla con el planeamiento urbanístico local. Solo avanzamos en terrenos donde sea viable legalmente.</p>
-  </details>
-  <details>
-    <summary>¿Cuándo estará disponible?</summary>
-    <p>Estamos en fase de validación. Si la demanda es suficiente, queremos tener el primer proyecto operativo en 12-18 meses. La lista de espera nos ayuda a priorizar zonas.</p>
-  </details>
-</section>
 
 <!-- FOOTER -->
 <footer>
@@ -1216,8 +1195,8 @@
         <p>Tu primera casa propia por menos de 200.000 EUR. Proyecto en fase de validacion.</p>
       </div>
       <div class="footer-links">
-        <a href="#">Aviso legal</a>
-        <a href="#">Politica de privacidad</a>
+        <a href="#" onclick="openModal('legal');return false;">Aviso legal</a>
+        <a href="#" onclick="openModal('privacy');return false;">Politica de privacidad</a>
         <a href="mailto:hola@nidopropio.es">hola@nidopropio.es</a>
       </div>
       <div class="footer-copy">&#169; 2025 NidoPropio &middot; No somos agencia inmobiliaria ni constructora. Los precios son orientativos.</div>
@@ -1232,6 +1211,11 @@
 
 
 <script>
+  // Modal functions
+  function openModal(id){document.getElementById("modal-"+id).classList.add("open");}
+  function closeModal(id){document.getElementById("modal-"+id).classList.remove("open");}
+  document.addEventListener("click",function(e){if(e.target.classList.contains("modal-overlay"))e.target.classList.remove("open");});
+
   // Cookie banner
   (function(){
     if(!localStorage.getItem("cookieOk")){
@@ -1271,5 +1255,20 @@
   }
 </script>
 
+  <!-- MODALS -->
+  <div class="modal-overlay" id="modal-legal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('legal')">&times;</button>
+      <h3>Aviso legal</h3>
+      <p>NidoPropio es un proyecto en fase de validacion operado por particulares. No somos agencia inmobiliaria ni promotora constructora. La informacion de esta web tiene caracter orientativo. Los precios mostrados son estimaciones que pueden variar segun el terreno, el fabricante y la evolucion del mercado. NidoPropio no se hace responsable de decisiones tomadas basandose exclusivamente en la informacion de esta web. Para cualquier consulta: hola@nidopropio.es</p>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-privacy">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
+      <h3>Politica de privacidad</h3>
+      <p>Los datos que nos facilitas (nombre, email, telefono y zona de interes) se utilizan exclusivamente para avisarte cuando haya disponibilidad en tu zona y para comunicaciones relacionadas con NidoPropio. No compartimos tus datos con terceros. Puedes solicitar la eliminacion de tus datos en cualquier momento escribiendo a hola@nidopropio.es. No utilizamos cookies de terceros ni herramientas de tracking externas.</p>
+    </div>
+  </div>
 </body>
 </html>
