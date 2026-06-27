@@ -681,12 +681,12 @@
   <p>Sin compromiso. Solo te avisamos cuando tengamos disponibilidad en tu zona o cuando abramos reservas.</p>
   <form id="waitlistForm" action="https://formspree.io/f/xkolbnep" method="POST" onsubmit="handleSubmit(event)">
     <div class="form-row">
-      <input type="text" placeholder="Tu nombre" required />
-      <input type="email" placeholder="Tu email" required />
+      <input type="text" name="nombre" placeholder="Tu nombre" required />
+      <input type="email" name="email" placeholder="Tu email" required />
     </div>
     <div class="form-row">
-      <input type="tel" placeholder="Teléfono (opcional)" />
-      <select>
+      <input type="tel" name="telefono" placeholder="Teléfono (opcional)" />
+      <select name="zona">
         <option value="">¿Qué zona te interesa?</option>
         <option>Abrera / Baix Llobregat</option>
         <option>Bigues i Riells / Vallès</option>
