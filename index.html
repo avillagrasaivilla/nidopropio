@@ -354,6 +354,28 @@
     .price-real { color: var(--green); font-weight: 700; }
     .idealista-link { display: block; text-align: center; font-size: 0.78rem; color: var(--green); text-decoration: none; margin-top: 0.5rem; font-weight: 600; }
     .prop-card.hidden { display: none; }
+    /* ── HOUSES SECTION ── */
+    .houses-section { padding: 5rem 2rem; background: var(--navy); }
+    .houses-section h2 { color: white; text-align: center; font-size: 2rem; margin-bottom: 0.75rem; }
+    .houses-section .sub { color: rgba(255,255,255,0.72); text-align: center; margin-bottom: 3rem; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .house-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.25); display: flex; flex-direction: column; }
+    .house-img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .house-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+    .house-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+    .house-badge { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 0.2rem 0.5rem; border-radius: 4px; }
+    .badge-madera { background: #e8f0d8; color: #3a5a0a; }
+    .badge-modular { background: #d8e8f8; color: #0a3a5a; }
+    .house-maker { font-size: 0.72rem; color: var(--muted); font-weight: 600; }
+    .house-model { font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-bottom: 0.25rem; }
+    .house-size { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .house-features { list-style: none; font-size: 0.8rem; color: var(--text); margin-bottom: 0.75rem; }
+    .house-features li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+    .house-price-box { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid #eee; }
+    .house-from { font-size: 0.72rem; color: var(--muted); }
+    .house-price { color: var(--green); font-size: 1.25rem; font-weight: 800; }
+    .house-vat { font-size: 0.7rem; color: var(--muted); }
+    .house-link { display: block; text-align: center; font-size: 0.78rem; color: var(--green); text-decoration: none; margin-top: 0.6rem; font-weight: 600; }
+    .house-link:hover { text-decoration: underline; }
 
     .prop-title { font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
     .prop-breakdown {
@@ -870,6 +892,137 @@
     </div>
   </div>
   <p style="text-align:center;margin-top:2rem;font-size:0.85rem;color:var(--muted)">Precios de terreno de <a href="https://www.idealista.com/venta-terrenos/barcelona-provincia/" target="_blank" style="color:var(--green)">Idealista.com</a>. Los precios totales incluyen terreno + casa prefabricada + instalación. Son estimaciones.</p>
+</section>
+
+
+<!-- HOUSES -->
+<section class="houses-section" id="casas">
+  <h2>Elige tu casa prefabricada</h2>
+  <p class="sub">Modelos reales de fabricantes españoles. Precios sin IVA (10%) ni coste de instalación en parcela. Se instalan en 2–5 meses.</p>
+  <div class="cards">
+
+    <div class="house-card">
+      <img class="house-img" src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=180&fit=crop" alt="Eurocasa MOD" loading="lazy">
+      <div class="house-body">
+        <div class="house-meta"><span class="house-badge badge-modular">Modular Acero</span><span class="house-maker">Grupo Eurocasa</span></div>
+        <div class="house-model">Modelo MOD</div>
+        <div class="house-size">Desde 30m² hasta +150m² · Personalizable</div>
+        <ul class="house-features">
+          <li>100% fabricado en España · Burgos</li>
+          <li>Clase energética A</li>
+          <li>Instalado en 2–3 meses</li>
+          <li>Configurador online disponible</li>
+        </ul>
+        <div class="house-price-box">
+          <div class="house-from">Precio desde</div>
+          <div class="house-price">69.578€ <span class="house-vat">+ IVA (10%)</span></div>
+        </div>
+        <a class="house-link" href="https://eurocasas.com/casa-modular-mod/" target="_blank">Ver modelo en Eurocasa →</a>
+      </div>
+    </div>
+
+    <div class="house-card">
+      <img class="house-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=180&fit=crop" alt="Eurocasa Villa" loading="lazy">
+      <div class="house-body">
+        <div class="house-meta"><span class="house-badge badge-modular">Modular Acero</span><span class="house-maker">Grupo Eurocasa</span></div>
+        <div class="house-model">Modelo Villa</div>
+        <div class="house-size">Variedad de tamaños · Primera/Segunda vivienda</div>
+        <ul class="house-features">
+          <li>Múltiples acabados exteriores</li>
+          <li>Piedra natural disponible</li>
+          <li>Ideal para jóvenes y familias</li>
+          <li>Llave en mano</li>
+        </ul>
+        <div class="house-price-box">
+          <div class="house-from">Precio desde</div>
+          <div class="house-price">57.881€ <span class="house-vat">+ IVA (10%)</span></div>
+        </div>
+        <a class="house-link" href="https://eurocasas.com/casa-prefabricada-modular-villa/" target="_blank">Ver modelo en Eurocasa →</a>
+      </div>
+    </div>
+
+    <div class="house-card">
+      <img class="house-img" src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=180&fit=crop" alt="Eurocasa Gran Villa" loading="lazy">
+      <div class="house-body">
+        <div class="house-meta"><span class="house-badge badge-modular">Modular Premium</span><span class="house-maker">Grupo Eurocasa</span></div>
+        <div class="house-model">Modelo Gran Villa</div>
+        <div class="house-size">Grandes superficies · Diseño vanguardista</div>
+        <ul class="house-features">
+          <li>Clase energética A (máxima)</li>
+          <li>Aislamiento térmico y acústico superior</li>
+          <li>LED + aerotermia incluidos</li>
+          <li>El más premium del catálogo</li>
+        </ul>
+        <div class="house-price-box">
+          <div class="house-from">Precio desde</div>
+          <div class="house-price">102.962€ <span class="house-vat">+ IVA (10%)</span></div>
+        </div>
+        <a class="house-link" href="https://eurocasas.com/vivienda-prefabricada-gran-villa/" target="_blank">Ver modelo en Eurocasa →</a>
+      </div>
+    </div>
+
+    <div class="house-card">
+      <img class="house-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=180&fit=crop" alt="Maestro Casas Jago" loading="lazy">
+      <div class="house-body">
+        <div class="house-meta"><span class="house-badge badge-madera">Madera</span><span class="house-maker">Maestro Casas</span></div>
+        <div class="house-model">Modelo Jago</div>
+        <div class="house-size">96 m² · 4 dormitorios · 2 baños</div>
+        <ul class="house-features">
+          <li>Cocina independiente + salón comedor</li>
+          <li>Madera de alta calidad C24</li>
+          <li>Eficiencia energética alta</li>
+          <li>Entrega rápida llave en mano</li>
+        </ul>
+        <div class="house-price-box">
+          <div class="house-from">Precio desde</div>
+          <div class="house-price">52.171€ <span class="house-vat">IVA incl.</span></div>
+        </div>
+        <a class="house-link" href="https://maestrocasas.es/jago/" target="_blank">Ver modelo en Maestro Casas →</a>
+      </div>
+    </div>
+
+    <div class="house-card">
+      <img class="house-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=180&fit=crop" alt="Maestro Casas Atlas" loading="lazy">
+      <div class="house-body">
+        <div class="house-meta"><span class="house-badge badge-madera">Madera</span><span class="house-maker">Maestro Casas</span></div>
+        <div class="house-model">Modelo Atlas</div>
+        <div class="house-size">48 m² · 2 dormitorios · Cubierta plana moderna</div>
+        <ul class="house-features">
+          <li>Diseño minimalista contemporáneo</li>
+          <li>Grandes ventanales · Mucha luz</li>
+          <li>Ideal para pareja o familia pequeña</li>
+          <li>Madera estructura C24</li>
+        </ul>
+        <div class="house-price-box">
+          <div class="house-from">Precio desde</div>
+          <div class="house-price">57.613€ <span class="house-vat">IVA incl.</span></div>
+        </div>
+        <a class="house-link" href="https://maestrocasas.es/cubierta-plana-atlas/" target="_blank">Ver modelo en Maestro Casas →</a>
+      </div>
+    </div>
+
+    <div class="house-card">
+      <img class="house-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=180&fit=crop" alt="Maestro Casas Frida" loading="lazy">
+      <div class="house-body">
+        <div class="house-meta"><span class="house-badge badge-madera">Madera</span><span class="house-maker">Maestro Casas</span></div>
+        <div class="house-model">Modelo Frida</div>
+        <div class="house-size">52 m² · 2 dormitorios · Terraza 12m²</div>
+        <ul class="house-features">
+          <li>Diseño rectangular compacto</li>
+          <li>Fachada revestida en madera</li>
+          <li>Aislamiento térmico y acústico</li>
+          <li>La opción más económica</li>
+        </ul>
+        <div class="house-price-box">
+          <div class="house-from">Precio desde</div>
+          <div class="house-price">38.975€ <span class="house-vat">IVA incl.</span></div>
+        </div>
+        <a class="house-link" href="https://maestrocasas.es/frida/" target="_blank">Ver modelo en Maestro Casas →</a>
+      </div>
+    </div>
+
+  </div>
+  <p style="text-align:center;margin-top:2.5rem;font-size:0.85rem;color:rgba(255,255,255,0.6)">Precios orientativos del fabricante. No incluyen transporte, cimentación ni conexiones de suministros. Contactad con el fabricante para presupuesto exacto según vuestra parcela.</p>
 </section>
 
 <!-- WAITLIST -->
