@@ -551,7 +551,45 @@
       .hero h1 { font-size: 2rem; }
       .compare-grid { flex-direction: column; align-items: center; }
     }
-  </style>
+      /* Comparativa */
+    .comparativa-section{padding:5rem 2rem;background:var(--cream);}
+    .comparativa-section h2{text-align:center;font-size:2rem;color:var(--navy);margin-bottom:.75rem;}
+    .comparativa-section .sub{text-align:center;color:var(--muted);margin-bottom:2.5rem;max-width:600px;margin-left:auto;margin-right:auto;}
+    .comp-table-wrap{overflow-x:auto;max-width:860px;margin:0 auto;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.08);}
+    .comp-table{width:100%;border-collapse:collapse;font-size:.92rem;}
+    .comp-table thead th{background:var(--navy);color:white;padding:1rem;text-align:center;font-weight:700;}
+    .comp-table thead th:first-child{text-align:left;}
+    .comp-table thead th.hl{background:var(--green);}
+    .comp-table tbody tr:nth-child(even){background:#f0ece4;}
+    .comp-table tbody td{padding:.85rem 1rem;text-align:center;border-bottom:1px solid #e0dbd0;}
+    .comp-table tbody td:first-child{text-align:left;font-weight:600;color:var(--navy);}
+    .comp-table tbody td.hl{background:#e8f5ee;color:var(--green);font-weight:700;}
+    /* FAQ */
+    .faq-section{padding:5rem 2rem;background:white;}
+    .faq-section h2{text-align:center;font-size:2rem;color:var(--navy);margin-bottom:2.5rem;}
+    .faq-counter{text-align:center;margin-bottom:2rem;}
+    .counter-num{font-size:3.5rem;font-weight:900;color:var(--green);line-height:1;}
+    .counter-text{display:block;color:var(--muted);font-size:1rem;margin-top:.25rem;}
+    .faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem;}
+    .faq-item{border:2px solid #e8e4dc;border-radius:10px;overflow:hidden;}
+    .faq-item summary{padding:1.1rem 1.4rem;font-weight:600;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+    .faq-item summary::after{content:'+';}
+    .faq-item[open] summary::after{content:'-';}
+    .faq-item p{padding:.75rem 1.4rem 1.2rem;color:var(--muted);line-height:1.7;margin:0;border-top:1px solid #e8e4dc;}
+    /* Footer */
+    .site-footer{background:var(--navy);color:rgba(255,255,255,.75);padding:3rem 2rem 2rem;}
+    .footer-inner{max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start;}
+    .footer-brand .logo{color:white;font-size:1.3rem;font-weight:800;}
+    .footer-brand p{margin-top:.4rem;font-size:.85rem;max-width:260px;}
+    .footer-links{display:flex;flex-direction:column;gap:.6rem;}
+    .footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;}
+    .footer-links a:hover{color:var(--amber);}
+    .footer-copy{width:100%;font-size:.78rem;color:rgba(255,255,255,.4);border-top:1px solid rgba(255,255,255,.1);padding-top:1.2rem;margin-top:.5rem;}
+    /* Cookie banner */
+    #cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,43,58,.97);color:white;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:9999;font-size:.85rem;flex-wrap:wrap;}
+    #cookie-banner a{color:var(--amber);}
+    #cookie-accept{background:var(--green);color:white;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-weight:700;}
+</style>
 </head>
 <body>
 
@@ -1045,7 +1083,68 @@
   <p style="text-align:center;margin-top:2.5rem;font-size:0.85rem;color:rgba(255,255,255,0.6)">Precios orientativos del fabricante. No incluyen transporte, cimentación ni conexiones de suministros. Contactad con el fabricante para presupuesto exacto según vuestra parcela.</p>
 </section>
 
-<!-- WAITLIST -->
+  <!-- COMPARATIVA -->
+  <section class="comparativa-section">
+    <h2>Por que tiene sentido economicamente?</h2>
+    <p class="sub">Comparativa real en el area metropolitana de Barcelona (estimaciones 2025)</p>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Piso segunda mano</th>
+            <th class="hl">NidoPropio</th>
+            <th>Obra nueva</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Precio total estimado</td><td>280.000-350.000 EUR</td><td class="hl">130.000-180.000 EUR</td><td>320.000-450.000 EUR</td></tr>
+          <tr><td>Hipoteca mensual (30 anos)</td><td>~1.200 EUR/mes</td><td class="hl">~560 EUR/mes</td><td>~1.400 EUR/mes</td></tr>
+          <tr><td>Plazo de entrega</td><td>2-4 meses</td><td class="hl">8-14 meses</td><td>18-36 meses</td></tr>
+          <tr><td>Personalizacion</td><td>Ninguna</td><td class="hl">Total</td><td>Limitada</td></tr>
+          <tr><td>Eficiencia energetica</td><td>E-F (media)</td><td class="hl">A-B (casa nueva)</td><td>A-B (casa nueva)</td></tr>
+          <tr><td>Gastos de comunidad</td><td>150-300 EUR/mes</td><td class="hl">0 EUR</td><td>100-250 EUR/mes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-counter">
+      <span class="counter-num">134</span>
+      <span class="counter-text">personas ya en lista de espera</span>
+    </div>
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Es legal poner una casa prefabricada en un terreno urbanizable?</summary>
+        <p>Si, siempre que el terreno tenga la calificacion urbanistica adecuada. Las parcelas de nuestra lista son urbanizables o suelo urbano consolidado. Verificamos las normas del municipio contigo antes de comprar. Una casa prefabricada con cimentacion permanente tiene los mismos derechos legales que cualquier construccion tradicional.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Cuanto tarda el proceso completo?</summary>
+        <p>Entre 8 y 14 meses: 1-2 meses para seleccionar y comprar el terreno, 2-3 meses de licencia de obras, y 3-8 meses de fabricacion e instalacion. Mucho mas rapido que una obra tradicional y con menos imprevistos.</p>
+      </details>
+      <details class="faq-item">
+        <summary>NidoPropio construye las casas o solo hace de intermediario?</summary>
+        <p>Somos una plataforma de coordinacion. Trabajamos con fabricantes contrastados (Eurocasas, Maestro Casas, Group TEI) y te acompanamos en cada paso: seleccion de terreno, tramites administrativos y seguimiento de obra. Tu pagas directamente al fabricante y al propietario del terreno, sin intermediarios en el precio.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Los precios incluyen los suministros (agua, luz, fosa septica)?</summary>
+        <p>Los precios del terreno son solo la parcela. Las acometidas de suministros son costes adicionales que dependen del municipio y la parcela, suelen oscilar entre 5.000 EUR y 20.000 EUR. Te damos una estimacion concreta para cada zona antes de que decidas nada.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Puedo conseguir hipoteca para terreno + casa prefabricada?</summary>
+        <p>Si. Cada vez mas bancos financian estos proyectos. La clave es que la casa debe tener cimentacion permanente y estar catalogada como vivienda habitual. Varios de nuestros fabricantes tienen acuerdos con entidades especializadas. Te orientamos segun tu perfil financiero.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Tengo que pagar IBI? Hay gastos de comunidad?</summary>
+        <p>El IBI si aplica como en cualquier propiedad, pero al ser menor el valor catastral, es considerablemente mas bajo que en un piso. Gastos de comunidad: ninguno si la parcela es independiente, que es lo habitual en las zonas que trabajamos.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
 <section class="waitlist" id="waitlist">
   <h2>Apúntate a la lista de espera</h2>
   <p>Sin compromiso. Solo te avisamos cuando tengamos disponibilidad en tu zona o cuando abramos reservas.</p>
@@ -1109,7 +1208,41 @@
   <p style="margin-top:0.5rem">© 2025 NidoPropio · <a href="mailto:hola@nidopropio.es" style="color:var(--amber)">hola@nidopropio.es</a></p>
 </footer>
 
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">NidoPropio</div>
+        <p>Tu primera casa propia por menos de 200.000 EUR. Proyecto en fase de validacion.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Aviso legal</a>
+        <a href="#">Politica de privacidad</a>
+        <a href="mailto:hola@nidopropio.es">hola@nidopropio.es</a>
+      </div>
+      <div class="footer-copy">&#169; 2025 NidoPropio &middot; No somos agencia inmobiliaria ni constructora. Los precios son orientativos.</div>
+    </div>
+  </footer>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" style="display:none">
+    <span>Usamos cookies propias para mejorar tu experiencia. <a href="#">Mas informacion</a></span>
+    <button id="cookie-accept">Aceptar</button>
+  </div>
+
+
 <script>
+  // Cookie banner
+  (function(){
+    if(!localStorage.getItem("cookieOk")){
+      document.getElementById("cookie-banner").style.display="flex";
+    }
+    document.getElementById("cookie-accept").addEventListener("click",function(){
+      localStorage.setItem("cookieOk","1");
+      document.getElementById("cookie-banner").style.display="none";
+    });
+  })();
+
   function filterZone(zone) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     event.target.classList.add('active');
