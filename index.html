@@ -1021,6 +1021,26 @@
       </div>
     </div>
 
+    <div class="house-card" style="border: 2px solid var(--amber);">
+      <img class="house-img" src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=400&h=180&fit=crop" alt="Group TEI módulos" loading="lazy">
+      <div class="house-body">
+        <div class="house-meta"><span class="house-badge" style="background:#fff3cd;color:#856404;">Módulos combinables</span><span class="house-maker">Group TEI · Tarragona</span></div>
+        <div class="house-model">Módulos TEI — Tú lo construyes</div>
+        <div class="house-size">Elige módulos y combínalos · Máxima flexibilidad</div>
+        <ul class="house-features">
+          <li>Módulo base 5.85×2.34m desde <strong>4.998€</strong> (IVA incl.)</li>
+          <li>~82m² (6 módulos + baño + cocina): <strong>~46.000€</strong></li>
+          <li>Revestimiento madera, parquet, A/C disponibles</li>
+          <li>Fabricado en Tarragona · Instalación rápida</li>
+        </ul>
+        <div class="house-price-box">
+          <div class="house-from">Ejemplo 82m² completo desde</div>
+          <div class="house-price">~46.000€ <span class="house-vat">IVA incl.</span></div>
+        </div>
+        <a class="house-link" href="https://grouptei.com" target="_blank">Ver catálogo en Group TEI →</a>
+      </div>
+    </div>
+
   </div>
   <p style="text-align:center;margin-top:2.5rem;font-size:0.85rem;color:rgba(255,255,255,0.6)">Precios orientativos del fabricante. No incluyen transporte, cimentación ni conexiones de suministros. Contactad con el fabricante para presupuesto exacto según vuestra parcela.</p>
 </section>
@@ -1090,24 +1110,32 @@
 </footer>
 
 <script>
-  // Animate counter
-  let count = 47;
-  setInterval(() => {
-    if (Math.random() > 0.7) {
-      count++;
-      document.getElementById('counter').textContent = count;
-    }
-  }, 8000);
-
-  // Form submit handled natively by Formspree
-
-  // Smooth scroll for all anchors
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+  function filterZone(zone) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.prop-card').forEach(card => {
+      if (zone === 'all' || card.dataset.zone === zone) { card.classList.remove('hidden'); }
+      else { card.classList.add('hidden'); }
     });
-  });
+  }
+
+  function showInterest(zona) {
+    const formSection = document.querySelector('.waitlist') || document.getElementById('registro') || document.querySelector('form');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        formSection.style.transition = 'box-shadow 0.3s';
+        formSection.style.boxShadow = '0 0 0 4px #4A8C6F';
+        setTimeout(() => { formSection.style.boxShadow = ''; }, 1500);
+      }, 600);
+    }
+    const select = document.querySelector('select[name="zona"]');
+    if (select) {
+      const opts = [...select.options];
+      const match = opts.find(o => o.text.toLowerCase().includes(zona.toLowerCase().split(' ')[0]));
+      if (match) select.value = match.value || match.text;
+    }
+  }
 </script>
 
 </body>
