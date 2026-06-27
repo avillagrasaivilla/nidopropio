@@ -679,7 +679,7 @@
 <section class="waitlist" id="waitlist">
   <h2>Apúntate a la lista de espera</h2>
   <p>Sin compromiso. Solo te avisamos cuando tengamos disponibilidad en tu zona o cuando abramos reservas.</p>
-  <form id="waitlistForm" onsubmit="handleSubmit(event)">
+  <form id="waitlistForm" action="https://formspree.io/f/xkolbnep" method="POST" onsubmit="handleSubmit(event)">
     <div class="form-row">
       <input type="text" placeholder="Tu nombre" required />
       <input type="email" placeholder="Tu email" required />
@@ -750,13 +750,14 @@
   }, 8000);
 
   // Form submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('waitlistForm').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-    count++;
-    document.getElementById('counter').textContent = count;
-  }
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('waitlistForm');
+  const data = new FormData(form);
+  const res = await fetch('https://formspree.io/f/xkolbnep', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+  if (res.ok) { form.style.display = 'none'; document.getElementById('successMsg').style.display = 'block'; }
+  else { alert('Error al enviar. Inténtalo de nuevo.'); }
+}
 
   // Zone interest buttons
   function showInterest(zone) {
