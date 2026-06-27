@@ -338,6 +338,23 @@
       font-weight: 700;
       margin-bottom: 0.3rem;
     }
+    /* ── FILTER BAR & TERRENOS ── */
+    .filter-bar { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .filter-btn { padding: 0.45rem 1.1rem; border-radius: 20px; border: 2px solid var(--navy); background: white; color: var(--navy); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--navy); color: white; }
+    .prop-img-real { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .prop-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
+    .zona-tag { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 0.2rem 0.5rem; border-radius: 4px; }
+    .baix-tag { background: #e8f4e8; color: #2d6a2d; }
+    .valles-tag { background: #e8eef8; color: #2d4a8a; }
+    .anoia-tag { background: #f8f0e8; color: #8a4a2d; }
+    .garraf-tag { background: #f0e8f8; color: #6a2d8a; }
+    .penedes-tag { background: #f8f8e8; color: #6a6a2d; }
+    .dist-tag { font-size: 0.72rem; color: var(--muted); font-weight: 600; }
+    .price-real { color: var(--green); font-weight: 700; }
+    .idealista-link { display: block; text-align: center; font-size: 0.78rem; color: var(--green); text-decoration: none; margin-top: 0.5rem; font-weight: 600; }
+    .prop-card.hidden { display: none; }
+
     .prop-title { font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
     .prop-breakdown {
       font-size: 0.82rem;
@@ -612,67 +629,247 @@
 
 <!-- EXAMPLES -->
 <section class="examples" id="ejemplos">
-  <h2>Terrenos en estudio</h2>
-  <p class="sub">Zonas donde estamos valorando el proyecto. ¿Te interesa alguna?</p>
-  <div class="cards">
-    <div class="prop-card">
-      <div class="prop-img c1">🌿</div>
+  <h2>Terrenos reales en venta</h2>
+  <p class="sub">Parcelas urbanizables reales de Idealista. Precios del terreno solo — la casa prefabricada se añade encima.</p>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterZone('all')">Todas las zonas</button>
+    <button class="filter-btn" onclick="filterZone('baix')">Baix Llobregat</button>
+    <button class="filter-btn" onclick="filterZone('valles')">Vallès</button>
+    <button class="filter-btn" onclick="filterZone('anoia')">Anoia</button>
+    <button class="filter-btn" onclick="filterZone('garraf')">Garraf</button>
+    <button class="filter-btn" onclick="filterZone('penedes')">Penedès</button>
+  </div>
+  <div class="cards" id="terrenos-grid">
+    <div class="prop-card" data-zone="baix">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=180&fit=crop" alt="Vallirana" loading="lazy">
       <div class="prop-body">
-        <div class="prop-location">📍 Abrera, Baix Llobregat</div>
-        <div class="prop-title">Casa 3 hab · 90m² · Parcela 300m²</div>
-        <div class="prop-breakdown">
-          <div><span>Terreno</span><span>40.000€</span></div>
-          <div><span>Casa prefabricada</span><span>85.000€</span></div>
-          <div><span>Instalación + gestión</span><span>~20.000€</span></div>
-        </div>
-        <div class="prop-total">
-          <div>
-            <div class="market-price">Mercado: ~280.000€</div>
-            <div class="final-price">145.000€</div>
-          </div>
-        </div>
+        <div class="prop-meta"><span class="zona-tag baix-tag">Baix Llobregat</span><span class="dist-tag">🚗 28 min BCN</span></div>
+        <div class="prop-location">📍 Vallirana</div>
+        <div class="prop-title">Parcela 320m² · Urbanizable</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~30.000€</span></div><div><span>Casa prefabricada 80m²</span><span>80.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~280.000€</div><div class="final-price">~130.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/vallirana-barcelona/" target="_blank">Ver en Idealista →</a>
+        <button class="interested-btn" onclick="showInterest('Vallirana')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="baix">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=180&fit=crop" alt="Corbera" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag baix-tag">Baix Llobregat</span><span class="dist-tag">🚗 30 min BCN</span></div>
+        <div class="prop-location">📍 Corbera de Llobregat</div>
+        <div class="prop-title">Parcela 300m² · Urbanizable · Vistas</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~35.000€</span></div><div><span>Casa prefabricada 85m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~300.000€</div><div class="final-price">~140.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/corbera-de-llobregat-barcelona/" target="_blank">Ver en Idealista →</a>
+        <button class="interested-btn" onclick="showInterest('Corbera de Llobregat')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="baix">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=180&fit=crop" alt="Abrera" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag baix-tag">Baix Llobregat</span><span class="dist-tag">🚗 35 min BCN</span></div>
+        <div class="prop-location">📍 Abrera · Tren R4</div>
+        <div class="prop-title">Parcela 300m² · Urbanizable · Servicios</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~40.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~280.000€</div><div class="final-price">~145.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/abrera-barcelona/" target="_blank">Ver en Idealista →</a>
         <button class="interested-btn" onclick="showInterest('Abrera')">Me interesa esta zona</button>
       </div>
     </div>
-    <div class="prop-card">
-      <div class="prop-img c2">🏔️</div>
+    <div class="prop-card" data-zone="valles">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=400&h=180&fit=crop" alt="Castellar del Vallès" loading="lazy">
       <div class="prop-body">
-        <div class="prop-location">📍 Bigues i Riells, Vallès</div>
-        <div class="prop-title">Casa 3 hab · 100m² · Parcela 400m²</div>
-        <div class="prop-breakdown">
-          <div><span>Terreno</span><span>55.000€</span></div>
-          <div><span>Casa prefabricada</span><span>90.000€</span></div>
-          <div><span>Instalación + gestión</span><span>~22.000€</span></div>
-        </div>
-        <div class="prop-total">
-          <div>
-            <div class="market-price">Mercado: ~320.000€</div>
-            <div class="final-price">167.000€</div>
-          </div>
-        </div>
+        <div class="prop-meta"><span class="zona-tag valles-tag">Vallès Occidental</span><span class="dist-tag">🚗 35 min BCN</span></div>
+        <div class="prop-location">📍 Castellar del Vallès</div>
+        <div class="prop-title">Parcela 350m² · Urbanizable · Tranquilo</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~32.000€</span></div><div><span>Casa prefabricada 85m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~290.000€</div><div class="final-price">~137.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/castellar-del-valles-barcelona/" target="_blank">Ver en Idealista →</a>
+        <button class="interested-btn" onclick="showInterest('Castellar del Valles')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="valles">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=180&fit=crop" alt="Vacarisses" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag valles-tag">Vallès Occidental</span><span class="dist-tag">🚗 40 min BCN</span></div>
+        <div class="prop-location">📍 Vacarisses</div>
+        <div class="prop-title">Parcela 600m² · Urbanizable · Naturaleza</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~20.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~260.000€</div><div class="final-price">~125.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/vacarisses-barcelona/" target="_blank">Ver en Idealista →</a>
+        <button class="interested-btn" onclick="showInterest('Vacarisses')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="valles">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1510797215324-95aa89f43c33?w=400&h=180&fit=crop" alt="Bigues i Riells" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag valles-tag">Vallès Oriental</span><span class="dist-tag">🚗 40 min BCN</span></div>
+        <div class="prop-location">📍 Bigues i Riells</div>
+        <div class="prop-title">Parcela 500m² · Urbanizable · Montaña</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~22.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~270.000€</div><div class="final-price">~127.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/bigues-i-riells-barcelona/" target="_blank">Ver en Idealista →</a>
         <button class="interested-btn" onclick="showInterest('Bigues i Riells')">Me interesa esta zona</button>
       </div>
     </div>
-    <div class="prop-card">
-      <div class="prop-img c3">🌾</div>
+    <div class="prop-card" data-zone="valles">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=180&fit=crop" alt="El Pont de Vilomara" loading="lazy">
       <div class="prop-body">
-        <div class="prop-location">📍 La Bisbal del Penedès</div>
-        <div class="prop-title">Casa 4 hab · 110m² · Parcela 500m²</div>
-        <div class="prop-breakdown">
-          <div><span>Terreno</span><span>45.000€</span></div>
-          <div><span>Casa prefabricada</span><span>100.000€</span></div>
-          <div><span>Instalación + gestión</span><span>~25.000€</span></div>
-        </div>
-        <div class="prop-total">
-          <div>
-            <div class="market-price">Mercado: ~360.000€</div>
-            <div class="final-price">170.000€</div>
-          </div>
-        </div>
-        <button class="interested-btn" onclick="showInterest('La Bisbal del Penedès')">Me interesa esta zona</button>
+        <div class="prop-meta"><span class="zona-tag valles-tag">Bages</span><span class="dist-tag">🚗 45 min BCN</span></div>
+        <div class="prop-location">📍 El Pont de Vilomara i Rocafort</div>
+        <div class="prop-title">Parcela 776m² · Urbanizable · Río</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">16.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~240.000€</div><div class="final-price">~121.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/109260900/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('El Pont de Vilomara')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="anoia">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400&h=180&fit=crop" alt="La Torre de Claramunt" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag anoia-tag">Anoia</span><span class="dist-tag">🚗 45 min BCN</span></div>
+        <div class="prop-location">📍 La Torre de Claramunt · Vistas Montserrat</div>
+        <div class="prop-title">Parcela 400m² · Mejor precio</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">9.000€</span></div><div><span>Casa prefabricada 80m²</span><span>80.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~220.000€</div><div class="final-price">~109.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/96567481/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('La Torre de Claramunt')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="anoia">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1568952433726-3896e3881c65?w=400&h=180&fit=crop" alt="La Torre de Claramunt 2" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag anoia-tag">Anoia</span><span class="dist-tag">🚗 45 min BCN</span></div>
+        <div class="prop-location">📍 La Torre de Claramunt · Orientación Sur</div>
+        <div class="prop-title">Parcela 535m²</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">13.500€</span></div><div><span>Casa prefabricada 85m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~230.000€</div><div class="final-price">~118.500€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/105522182/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('La Torre de Claramunt')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="anoia">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=400&h=180&fit=crop" alt="La Torre de Claramunt 3" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag anoia-tag">Anoia</span><span class="dist-tag">🚗 45 min BCN</span></div>
+        <div class="prop-location">📍 La Torre de Claramunt · Zona rural</div>
+        <div class="prop-title">Parcela 654m² · Naturaleza</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">13.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~230.000€</div><div class="final-price">~118.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/107173559/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('La Torre de Claramunt')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="anoia">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=180&fit=crop" alt="Masquefa" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag anoia-tag">Anoia</span><span class="dist-tag">🚗 40 min BCN</span></div>
+        <div class="prop-location">📍 Masquefa</div>
+        <div class="prop-title">Parcela 503m² · Edificabilidad 312m²</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">12.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~240.000€</div><div class="final-price">~117.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/96564488/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('Masquefa')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="anoia">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=180&fit=crop" alt="Piera" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag anoia-tag">Anoia</span><span class="dist-tag">🚗 40 min BCN</span></div>
+        <div class="prop-location">📍 Piera</div>
+        <div class="prop-title">Parcela 400m² · Urbanizable · Servicios</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~25.000€</span></div><div><span>Casa prefabricada 85m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~250.000€</div><div class="final-price">~130.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/piera-barcelona/" target="_blank">Ver en Idealista →</a>
+        <button class="interested-btn" onclick="showInterest('Piera')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="anoia">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=400&h=180&fit=crop" alt="Cabrera Anoia" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag anoia-tag">Anoia</span><span class="dist-tag">🚗 50 min BCN</span></div>
+        <div class="prop-location">📍 Cabrera d'Anoia · Castell de Cabrera</div>
+        <div class="prop-title">Parcela 1.051m² · Precio negociable</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">11.630€</span></div><div><span>Casa prefabricada 100m²</span><span>95.000€</span></div><div><span>Instalación</span><span>~22.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~220.000€</div><div class="final-price">~128.630€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/97568422/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('Cabrera Anoia')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="garraf">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1510797215324-95aa89f43c33?w=400&h=180&fit=crop" alt="Olivella" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag garraf-tag">Garraf</span><span class="dist-tag">🚗 35 min BCN</span></div>
+        <div class="prop-location">📍 Olivella · Can Surià</div>
+        <div class="prop-title">Parcela 703m² · Urbano consolidado</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">15.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~270.000€</div><div class="final-price">~120.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/110509998/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('Olivella')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="garraf">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=180&fit=crop" alt="Canyelles" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag garraf-tag">Garraf</span><span class="dist-tag">🚗 40 min BCN</span></div>
+        <div class="prop-location">📍 Canyelles</div>
+        <div class="prop-title">Parcela 500m² · Urbanizable · Vistas mar</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~22.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~260.000€</div><div class="final-price">~127.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/canyelles-barcelona/" target="_blank">Ver en Idealista →</a>
+        <button class="interested-btn" onclick="showInterest('Canyelles')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="garraf">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=180&fit=crop" alt="Castellet i la Gornal" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag garraf-tag">Garraf</span><span class="dist-tag">🚗 50 min BCN</span></div>
+        <div class="prop-location">📍 Castellet i la Gornal · Valldemar</div>
+        <div class="prop-title">Parcela 1.805m² · Mejor precio</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">5.200€</span></div><div><span>Casa prefabricada 100m²</span><span>95.000€</span></div><div><span>Instalación</span><span>~22.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~220.000€</div><div class="final-price">~122.200€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/111777087/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('Castellet la Gornal')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="penedes">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1533856493584-0c6ca8ca9ce3?w=400&h=180&fit=crop" alt="Mediona bosque" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag penedes-tag">Alt Penedès</span><span class="dist-tag">🚗 50 min BCN</span></div>
+        <div class="prop-location">📍 Mediona · La Font del Bosc</div>
+        <div class="prop-title">Parcela 500m² · Bosque · Viñedos</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">15.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~220.000€</div><div class="final-price">~120.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/92292379/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('Mediona')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="penedes">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1568952433726-3896e3881c65?w=400&h=180&fit=crop" alt="Mediona mercadillo" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag penedes-tag">Alt Penedès</span><span class="dist-tag">🚗 50 min BCN</span></div>
+        <div class="prop-location">📍 Mediona · Urbanización con servicios</div>
+        <div class="prop-title">Parcela 530m² · Piscina comunitaria</div>
+        <div class="prop-breakdown"><div><span>Terreno real</span><span class="price-real">15.000€</span></div><div><span>Casa prefabricada 90m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~220.000€</div><div class="final-price">~120.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/inmueble/111856003/" target="_blank">Ver anuncio real →</a>
+        <button class="interested-btn" onclick="showInterest('Mediona')">Me interesa esta zona</button>
+      </div>
+    </div>
+    <div class="prop-card" data-zone="penedes">
+      <img class="prop-img-real" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=180&fit=crop" alt="Sant Llorenc" loading="lazy">
+      <div class="prop-body">
+        <div class="prop-meta"><span class="zona-tag penedes-tag">Alt Penedès</span><span class="dist-tag">🚗 40 min BCN</span></div>
+        <div class="prop-location">📍 Sant Llorenç d'Hortons</div>
+        <div class="prop-title">Parcela 450m² · Urbanizable · Tranquilo</div>
+        <div class="prop-breakdown"><div><span>Terreno</span><span class="price-real">~22.000€</span></div><div><span>Casa prefabricada 85m²</span><span>85.000€</span></div><div><span>Instalación</span><span>~20.000€</span></div></div>
+        <div class="prop-total"><div><div class="market-price">Piso zona: ~240.000€</div><div class="final-price">~127.000€</div></div></div>
+        <a class="idealista-link" href="https://www.idealista.com/venta-terrenos/sant-llorenc-d-hortons-barcelona/" target="_blank">Ver en Idealista →</a>
+        <button class="interested-btn" onclick="showInterest('Sant Llorenc Hortons')">Me interesa esta zona</button>
       </div>
     </div>
   </div>
+  <p style="text-align:center;margin-top:2rem;font-size:0.85rem;color:var(--muted)">Precios de terreno de <a href="https://www.idealista.com/venta-terrenos/barcelona-provincia/" target="_blank" style="color:var(--green)">Idealista.com</a>. Los precios totales incluyen terreno + casa prefabricada + instalación. Son estimaciones.</p>
 </section>
 
 <!-- WAITLIST -->
